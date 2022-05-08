@@ -58,7 +58,7 @@ function GetArticles(searchTerm) {
 
                     //Append url domain if retrieved url is a relative path
                     if (!/^https|http/i.test(url)) {
-                        url = resources[0].address + url;
+                        url = resource.address + url;
                     }
 
                     //Push result if not empty
@@ -100,7 +100,6 @@ app.get('/news/:searchTerm', async (req, res) => {
 app.get('/', (req, res) => {
     const html = `
     <h4>Welcome to Video Game News!</h4><br>
-
     <p>This API searches multiple video game news outlets and returns articles in JSON format based on a provided search term.</p>
     <p>To use this API and search for video game articles, enter the search term in the address bar so that it matches the format below:</p>
     <p style="margin-left:30px"><strong>https://abc123.com/news/<span style="color: green">searchTerm</span></strong></p>
